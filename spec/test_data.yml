@@ -1,0 +1,20 @@
+people:
+  - fname: joe
+    surname: bloggs
+    dob: 1 Jan 1990
+    emails:
+      - joe@foo.com
+      - joe.bloggs@work.com
+    phones:
+      - 01268798989
+      - 07428686686
+  - fname: adam
+    surname: blank
+    dob: 1 Jan 1990
+    emails:
+      - adam@foo.com
+      - adam.bloggs@work.com
+    phones:
+      - 01268798989
+      - 07428686686
+     

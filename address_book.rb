@@ -1,5 +1,5 @@
 require "./person_info.rb"
-
+require 'YAML'
 
 class AddressBook
 	attr_accessor :contacts
@@ -10,21 +10,39 @@ class AddressBook
 
 	def add(person)
 		@contacts << person
-	end
+	end 
 
 	def list
-		puts 'Address Book'
-		12.times {print "-"}
-		puts
-		@contacts.each_with_index { |person, i| puts "Entry: #{i+1}: #{person.fullname}" }
+		puts "\nAddress Book"
+		puts "------------"
+		@contacts.each_with_index { |person, i| puts "Entry #{i+1}: #{person.fullname}" }
+	end
+
+	def load_yaml(file)
+		details = YAML.load(File.open(file))
+		details["people"].each do |yaml_person|
+			person = Person.new(yaml_person["fname"], yaml_person["surname"], yaml_person["dob"])
+
+			yaml_person['emails'].each do |e|
+				add_email = e
+			end
+
+			yaml_person['phones'].each do |ph|
+				add_phone = ph
+			end
+
+			add(person)
+
+		end
+
 	end
 
 end
 
-joe = Person.new('joe', 'bloggs', '1 Jan 1990')
-adam = Person.new('adam', 'blank', '2 Jan 1970')
 book = AddressBook.new
-book.add(joe)
-book.add(adam)
-
+book.load_yaml('./Phonebook.yml')
 book.list
+
+
+
+

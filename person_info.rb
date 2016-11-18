@@ -37,5 +37,4 @@ class Person
 		puts "\nPhone Numbers are:"
 		@phone_numbers.each {|d| puts "- #{d}"}
 	end
-
 end
