@@ -6,7 +6,6 @@ class Person
 		@first_name = first.capitalize
 		@last_name = last.capitalize
 		@dob = dob
-		@fullname = "#{first_name} #{last_name}"
 		@emails = Array.new
 		@phone_numbers = Array.new
 	end
@@ -21,6 +20,10 @@ class Person
 
 	def add_phone= (number)
 		@phone_numbers << number
+	end
+
+	def fullname 
+		"#{first_name} #{last_name}"
 	end
 
 	def to_s

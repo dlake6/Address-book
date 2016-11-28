@@ -32,16 +32,11 @@ class AddressBook
 			end
 
 			add(person)
-
 		end
-
 	end
 
 end
 
-book = AddressBook.new
-book.load_yaml('./Phonebook.yml')
-book.list
 
 
 
